@@ -3,7 +3,9 @@ package com.sonata.model;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * @author Kam1shiro
+ * */
 @Service
 public class ClothesServiceImpl implements ClothesService{
 

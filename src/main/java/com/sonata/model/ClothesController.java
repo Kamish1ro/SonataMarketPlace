@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 import java.util.List;
-
+/**
+ * @author Kam1shiro
+ * */
 @RestController
 public class ClothesController {
     private final ClothesService clothesService;
@@ -15,9 +18,18 @@ public class ClothesController {
     public ClothesController(ClothesService clothesService){
         this.clothesService = clothesService;
     }
-
+    /**
+     * @param clothes - объект клаасса Clothes, через него проверяется, корректны ли введённые данные.
+     *                Если цена(price) или количество(quantity) меньши нуля, то выдается ошибка 400 badRequest.
+     * */
     @PostMapping(value = "/clothes")
-    public ResponseEntity<?> create(@RequestBody Clothes clothes){
+    public ResponseEntity<Clothes> create(@Valid @RequestBody Clothes clothes){
+        if (clothes.getPrice() < 0) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        if (clothes.getQuantity() < 0) {
+            return ResponseEntity.badRequest().body(null);
+        }
         clothesService.create(clothes);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

@@ -2,7 +2,9 @@ package com.sonata.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-
+/**
+ * @author Kam1shiro
+ * */
 @Entity
 @Table(name="clothes")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

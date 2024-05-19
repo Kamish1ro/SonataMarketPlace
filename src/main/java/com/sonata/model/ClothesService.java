@@ -1,7 +1,9 @@
 package com.sonata.model;
 
 import java.util.List;
-
+/**
+ * @author Kam1shiro
+ * */
 public interface ClothesService {
     /**
      * CRUD операции
