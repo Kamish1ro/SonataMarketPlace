@@ -17,7 +17,7 @@ SonataMarketPlace - backend приложение, которое имеет фу
 
 ## PostgreSQL
 
-в application.properties нужно будет указать свои данные:
+в application.properties нужно будет указать данные от DB:
 
 - url
 
